@@ -30,3 +30,29 @@ function book(title, author, year, pages, read){
     this.read = read
 }
 let testBook = new book("great title","trevor corey",1982,240,true);
+
+// addNewBook button
+let addNewBookButton = document.getElementById("addNewBook");
+addNewBookButton.addEventListener('click', function() {
+    dialogBackground.style.cssText = `${dialogBackgroundProperties}`;
+    dialogBox.style.cssText = `${dialogBoxProperties}`;
+});
+// Dialog Box Background
+let dialogBackground = document.getElementById('dialogBackground');
+    let dialogBackgroundProperties = "margin:auto; display:block; z-index:99; position:absolute; background-color:#000; opacity:0.2; height:99%; width:99%;";
+// Dialog Box (wrapper)
+let DialogBox = document.getElementById('dialogBox');
+    let dialogBoxProperties = "display:block; margin:200px auto auto; background-color:#fff;";
+// Dialog Box Fields
+let bookTitle;
+// Dialog Box button
+const AddBook = document.getElementById('addBook');
+addBook.addEventListener('click', function(){
+    //bookTitle = document.getElementById('bookTitle').textContent;
+    var newBookForm = document.getElementById("newBookForm");
+    var text = "";
+    let i;
+    for (i = 0; i < x.length ;i++) {
+      new book(newBookForm.elements[i].value);
+    }
+});
