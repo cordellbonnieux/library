@@ -5,25 +5,25 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="dialogBackground">
+    <div id="dialogBackground"></div>
         <div id="dialogBox">
             <div id="dialogTitle"><h2>Add A New Book</h2></div>
-                <form id="newBookForm">
+                <form id="newBookForm" onsubmit="return addBook();">
                 <div class="dialogField"><label for="bookTitle">Book title: </label><input type="text" id="bookTitle"></input></div>
                 <div class="dialogField"><label for="authorName">Name of author: </label><input type="text" id="authorName"></input></div>
                 <div class="dialogField"><label for="yearPublished">Year published: </label><input type="text" id="yearPublished"></input></div>
                 <div class="dialogField"><label for="numberOfPages">Number of pages: </label><input type="text" id="numberOfPages"></input></div>
-                <div class="dialogField"><label for="haveRead">Have you read this book? </label><input type="text" id="haveRead"></input></div>
+                <div class="dialogField"><label for="haveRead">Have you read this book? <input type="checkbox" id="haveRead"></input></label></div>
                 <input type="submit" value="Add Book" id="addBook"></input>
                 </form>
         </div>
-    </div>
+    
     <header>
         <div id="left">
             <h1> Library </h1>
         </div>
         <div id="right">
-            <button id="addNewBook">Add New Book</button>
+            <button id="addNewBook" onclick="return showDialog();">Add New Book</button>
         </div>
     </header>
     <div id="libraryGrid">

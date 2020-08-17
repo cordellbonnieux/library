@@ -15,7 +15,22 @@
     display:block;
     width:100%;
 }
-
-#dialogBox{
+/* Dialog default styles */
+#dialogBackground{
+    margin:auto;
     display:none;
+    z-index:98;
+    position:absolute;
+    background-color:#000;
+    opacity:0.2;
+    height:99%;
+    width:99%;";
 }
+    #dialogBox{
+        z-index:99;
+        position:absolute;
+        display:none;
+        margin:200px auto auto 30%;
+        background-color:#fff;
+        opacity:1;
+    }
