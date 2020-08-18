@@ -1,6 +1,6 @@
 let myLibrary = [];
 let libraryGrid = document.getElementById('libraryGrid');
-// Creates a book
+// Book prototype
 function Book(title, author, year, pages, read){
     this.title = title,
     this.author = author,
@@ -42,7 +42,7 @@ addBookButton.addEventListener('click', function(){
 function libraryRefresh(){
     libraryGrid.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++){
-        libraryGrid.innerHTML += "<div style='display:inline-block; background-color:#fff; padding:10px; border:4px dotted #000;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div>";
+        libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='border:1px solid #000; padding:10px 10px 10px 25px; box-shadow:4px 4px 4px #000; max-width:300px; background-color:#fff; background-image:url(pw_maze_white.png);'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div></div>";
     }
     return;
 }
