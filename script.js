@@ -1,58 +1,54 @@
-// grid for storing the books on the page
-let libraryGrid = document.getElementById("libraryGrid");
-// stores all books
 let myLibrary = [];
-// node template
-let template = `<div style="color:#000; background-color:#fff; display:inline-block; width:300px; height:300px;">
-<ul style="list-style:none;">
-<li>${this.title}</li>
-<li>by ${this.author}</li>
-<li>${this.year} <span style="text-align:right">${this.pages} pages</span></li>
-<li>${this.read}</li>
-</ul>
-</div>
-`;
-// render
-let render = function(book){
-    libraryGrid.innerHTML += template; // something here needs to link the new book to the template
-}
-//add to library function
-function addBookToLibrary(book){
-    myLibrary.push(book);
-    render(book);
-}
-// book prototype
-function book(title, author, year, pages, read){
+let libraryGrid = document.getElementById('libraryGrid');
+// Book prototype
+function Book(title, author, year, pages, read){
     this.title = title,
     this.author = author,
     this.year = year,
     this.pages = pages,
     this.read = read
 }
-let testBook = new book("great title","trevor corey",1982,240,true);
-
-// addNewBook button
-let addNewBookButton = document.getElementById("addNewBook");
-addNewBookButton.addEventListener('click', function() {
-    dialogBackground.style.cssText = `${dialogBackgroundProperties}`;
-    dialogBox.style.cssText = `${dialogBoxProperties}`;
-});
-// Dialog Box Background
-let dialogBackground = document.getElementById('dialogBackground');
-    let dialogBackgroundProperties = "margin:auto; display:block; z-index:99; position:absolute; background-color:#000; opacity:0.2; height:99%; width:99%;";
-// Dialog Box (wrapper)
-let DialogBox = document.getElementById('dialogBox');
-    let dialogBoxProperties = "display:block; margin:200px auto auto; background-color:#fff;";
-// Dialog Box Fields
-let bookTitle;
-// Dialog Box button
-const AddBook = document.getElementById('addBook');
-addBook.addEventListener('click', function(){
-    //bookTitle = document.getElementById('bookTitle').textContent;
-    var newBookForm = document.getElementById("newBookForm");
-    var text = "";
-    let i;
-    for (i = 0; i < x.length ;i++) {
-      new book(newBookForm.elements[i].value);
+// Shows Dialog Boxes
+function showDialog(){
+    document.getElementById('dialogBackground').style.display = "block";
+    document.getElementById('dialogBox').style.display = "block";
+    return
+}
+// Hides Dialog Boxes
+function hideDialog(){
+    document.getElementById('dialogBackground').style.display = "none";
+    document.getElementById('dialogBox').style.display = "none";
+    return
+} 
+// Add Book button in dialog box
+let addBookButton = document.getElementById('addBook');
+addBookButton.addEventListener('click', function(){
+    let title = document.getElementById('bookTitle').value;
+    let author = document.getElementById('authorName').value;
+    let year = Number(document.getElementById('yearPublished').value);
+    let pages = Number(document.getElementById('numberOfPages').value);
+    let read = document.getElementById('haveRead').checked;
+    if(title == "" || author == "" || year == "" || pages == ""){
+        return alert('You must fill in all fields to add a book.');
     }
+    if (read == true){
+        read = "Have read";
+    } else {
+        read = "Have not read";
+    }
+    myLibrary.push(new Book(title, author, year, pages, read));
+    libraryRefresh();
+    title.value = "", author.value = "", year.value = "", pages.value = "", read.value = false;
+    document.getElementById('newBookForm').reset();
+    return hideDialog();
 });
+// Refreshes and prints all books to the Library
+function libraryRefresh(){
+    libraryGrid.innerHTML = "";
+    for (let i = 0; i < myLibrary.length; i++){
+        libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='border:1px solid #000; padding:10px 10px 10px 25px; box-shadow:4px 4px 4px #000; max-width:300px; background-color:#fff;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div></div>";
+    }
+    return;
+}
+
+

@@ -1,14 +1,13 @@
 h1,h2,h3,h4{
     font-family: 'Libre Caslon Display', serif;
-    color:#1c305d;
+    color:#373737;
 }
 body,p,input{
     font-family: 'Open Sans', sans-serif;
-    color:#1c305d;
+    color:#373737;
 }
     body{
-        /*overflow:hidden;*/
-        background-image:url("moroccan-flower-dark.png");
+        background-image:url("debut_dark.png");
         background-color:#fff;
     }
 #boundingBox{
@@ -19,13 +18,10 @@ body,p,input{
 header{
     width:79%;
     position:absolute;
-    z-index:97;
-    background-color:#fff;
     display:grid;
     grid-template-columns:auto auto;
-    box-shadow:4px 4px 4px #000;
-    border:2px solid #000;
-    background-image:url("pw_maze_white.png");
+    border:2px solid #373737;
+    background-color:#fff;
 }
     #left,#right{
         display:inline-block;
@@ -40,17 +36,16 @@ header{
             padding-right:22px;
         }
             button{
-                background-color:#174578;
-                color:#000;
+                background-color:#4a65f1;
                 color:#fff;
                 padding:6px;
-                border:2px solid #1c305d;
+                border:2px solid #373737;
                 border-radius:4px;
             }
                 button:hover,button:active,button:focus{
-                    border-color:#174578;
+                    border-color:#373737;
                     background-color:#fff;
-                    color:#1c305d;
+                    color:#373737;
                     cursor:pointer;
                 }
 #libraryGrid{
@@ -60,7 +55,6 @@ header{
     grid-template-columns:auto auto auto auto;
     width:100%;
 }
-/* Dialog default styles */
 #dialogBackground{
     margin:auto;
     display:none;
@@ -75,7 +69,36 @@ header{
         z-index:99;
         position:absolute;
         display:none;
-        margin:200px auto auto 30%;
+        margin:200px auto auto 40%;
         background-color:#fff;
         opacity:1;
+        padding:25px;
+        text-align:right;
     }
+        #dialogTitle{
+            text-align:center;
+        }
+        .dialogCheckbox{
+            text-align:left;
+        }
+        .dialogField{
+            margin:10px 0;
+            text-align:left;
+        }
+            .dialogField input{
+                width:100%;
+            }
+        #addBook{
+            background-color:#4a65f1;
+            color:#fff;
+            padding:6px;
+            border:2px solid #373737;
+            border-radius:4px;
+            margin-top:10px;
+        }
+            #addBook:focus, #addBook:hover, #addBook:active{
+                border-color:#373737;
+                background-color:#fff;
+                color:#373737;
+                cursor:pointer;
+            }
