@@ -11,8 +11,8 @@
                 <form id="newBookForm" action="#" onsubmit="return false;">
                 <div class="dialogField"><label for="bookTitle">Book title: </label><input type="text" id="bookTitle"></input></div>
                 <div class="dialogField"><label for="authorName">Name of author: </label><input type="text" id="authorName"></input></div>
-                <div class="dialogField"><label for="yearPublished">Year published: </label><input type="text" id="yearPublished"></input></div>
-                <div class="dialogField"><label for="numberOfPages">Number of pages: </label><input type="text" id="numberOfPages"></input></div>
+                <div class="dialogField"><label for="yearPublished">Year published: </label><input type="text" id="yearPublished" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
+                <div class="dialogField"><label for="numberOfPages">Number of pages: </label><input type="text" id="numberOfPages" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
                 <div class="dialogField"><label for="haveRead">Have you read this book? <input type="checkbox" id="haveRead"></input></label></div>
                 <input type="submit" value="Add Book" id="addBook"></input>
                 </form>
@@ -23,7 +23,7 @@
             <h1> Library </h1>
         </div>
         <div id="right">
-            <button id="addNewBook" onclick="return showDialog();">Add New Book</button>
+            <button id="addNewBook" onclick="showDialog(); return false;">Add New Book</button>
         </div>
     </header>
     <div id="libraryGrid">

@@ -12,7 +12,8 @@
 #libraryGrid{
     background-color:#000;
     color:#fff;
-    display:block;
+    display:grid;
+    grid-template-columns:auto auto auto auto;
     width:100%;
 }
 /* Dialog default styles */
