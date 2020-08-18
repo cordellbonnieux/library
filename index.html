@@ -3,6 +3,7 @@
 <head>
 <title>Library</title>
 <link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="dialogBackground"></div>
@@ -17,17 +18,17 @@
                 <input type="submit" value="Add Book" id="addBook"></input>
                 </form>
         </div>
-    
-    <header>
-        <div id="left">
-            <h1> Library </h1>
+    <div id="boundingBox">
+        <header>
+            <div id="left">
+                <h1> Library </h1>
+            </div>
+            <div id="right">
+                <button id="addNewBook" onclick="showDialog(); return false;">Add New Book</button>
+            </div>
+        </header>
+        <div id="libraryGrid">
         </div>
-        <div id="right">
-            <button id="addNewBook" onclick="showDialog(); return false;">Add New Book</button>
-        </div>
-    </header>
-    <div id="libraryGrid">
-
     </div>
 </body>
 <footer>

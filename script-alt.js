@@ -42,13 +42,9 @@ addBookButton.addEventListener('click', function(){
 function libraryRefresh(){
     libraryGrid.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++){
-        libraryGrid.innerHTML += "<div class='bookWrapper' style='display:inline-block;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div>";
+        libraryGrid.innerHTML += "<div style='display:inline-block; background-color:#fff; padding:10px; border:4px dotted #000;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div>";
     }
     return;
 }
-
-
-
-myLibrary.push(new Book("The Fellowship of the Ring","J.R.R. Tolkien",1954,423,true));
 
 
