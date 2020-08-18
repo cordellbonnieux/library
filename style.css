@@ -1,15 +1,28 @@
 h1,h2,h3,h4{
-    font-family: 'Libre Caslon Display', serif;
-    color:#373737;
+    font-family: 'Open Sans', sans-serif;
+    color:#fff;
 }
 body,p,input{
     font-family: 'Open Sans', sans-serif;
-    color:#373737;
+    color:#fff;
 }
     body{
-        background-image:url("debut_dark.png");
-        background-color:#fff;
+        background-color:#000;
     }
+    button{
+        color: #fff;
+        background-color:transparent;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding:6px;
+        font-family: 'Open Sans', sans-serif;
+        font-size:16px;
+    }
+        button:hover,button:active,button:focus{
+            background-color:#fff;
+            color:#000;
+            cursor:pointer;
+        }
 #boundingBox{
     max-width:80%;
     margin:0 auto;
@@ -20,7 +33,6 @@ header{
     position:absolute;
     display:grid;
     grid-template-columns:auto auto;
-    border:2px solid #373737;
     background-color:#fff;
 }
     #left,#right{
@@ -30,30 +42,53 @@ header{
         #left{
             padding:0 4px 0 22px;
         }
+            #left h1{
+                color:#000;
+                display:inline-block;
+            }
+            #left h2{
+                font-size:16px;
+                display:inline-block;
+                color:#000;
+                margin-left:8px;
+            }
+                #left h2 a{
+                    color:#000;
+                    text-decoration:none;
+                    transition:0.2;
+                }
+                    #left h2 a:hover, #left h2 a:active, #left h2 a:focus{
+                        color:#000;
+                        text-decoration:underline;
+                    }
         #right{
             text-align:right;
             padding-top:25px;
             padding-right:22px;
         }
-            button{
-                background-color:#4a65f1;
+        #right button{
+            color: #000;
+            background-color:transparent;
+            border: 1px solid #000;
+            border-radius: 4px;
+            padding:6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size:16px;
+        }
+            #right button:hover,#right button:active,#right button:focus{
+                background-color:#000;
                 color:#fff;
-                padding:6px;
-                border:2px solid #373737;
-                border-radius:4px;
+                cursor:pointer;
             }
-                button:hover,button:active,button:focus{
-                    border-color:#373737;
-                    background-color:#fff;
-                    color:#373737;
-                    cursor:pointer;
-                }
+
 #libraryGrid{
     padding-top:100px;
     color:#fff;
-    display:inline-grid;
-    grid-template-columns:auto auto auto auto;
-    width:100%;
+    /*display:inline-grid;
+    grid-template-columns:auto auto auto auto;*/
+    display:flex;
+    flex-wrap: wrap;
+    grid-auto-rows: 1fr
 }
 #dialogBackground{
     margin:auto;
@@ -61,7 +96,7 @@ header{
     z-index:98;
     position:absolute;
     background-color:#000;
-    opacity:0.2;
+    opacity:0.6;
     height:99%;
     width:99%;";
 }
@@ -70,13 +105,34 @@ header{
         position:absolute;
         display:none;
         margin:200px auto auto 40%;
-        background-color:#fff;
+        border:1px solid #fff;
         opacity:1;
-        padding:25px;
         text-align:right;
+        padding-bottom:25px;
+        background-color:#000;
     }
+        #newBookForm{
+            margin:0 25px;
+        }
+        #cancelWrapper{
+            height:0;
+        }
+            #cancel{
+                margin: 4px 10px 25px 0;
+                padding:4px;
+                border:none;
+                border-radius:100px;
+                background-color:transparent;
+            }
+                #cancel:hover, #cancel:active, #cancel:focus, #cancel:focus-within{
+                    color:#fff;
+                    opacity:0.4;
+                    border:none;
+                    background-color:transparent;
+                }
         #dialogTitle{
             text-align:center;
+            margin-top:50px;
         }
         .dialogCheckbox{
             text-align:left;
@@ -88,17 +144,35 @@ header{
             .dialogField input{
                 width:100%;
             }
-        #addBook{
-            background-color:#4a65f1;
+        #haveRead{
+            height:14px;
+            width:14px;
+            border-radius:6px;
+            background:transparent;
             color:#fff;
+            border-color:#fff;
+        }
+            #haveRead:checked{
+                background-color:#fff;
+                color:#000;
+            }
+        #addBook{
+            color:#fff;
+            background-color:transparent;
             padding:6px;
-            border:2px solid #373737;
+            border:1px solid #fff;
             border-radius:4px;
+            font-size:16px;
             margin-top:10px;
         }
             #addBook:focus, #addBook:hover, #addBook:active{
-                border-color:#373737;
                 background-color:#fff;
-                color:#373737;
+                color:#000;
                 cursor:pointer;
             }
+        .dialogField input{
+            background-color:transparent;
+            border:1px solid #fff;
+            color:#fff;
+            font-size:16px;
+        }

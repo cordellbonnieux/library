@@ -3,17 +3,18 @@
 <head>
 <title>Library</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="dialogBackground"></div>
         <div id="dialogBox">
+            <div id="cancelWrapper"><button id="cancel">X</button></div>
             <div id="dialogTitle"><h2>Add A New Book</h2></div>
                 <form id="newBookForm" action="#" onsubmit="return false;">
-                <div class="dialogField"><label for="bookTitle">Book title: </label><input type="text" id="bookTitle"></input></div>
-                <div class="dialogField"><label for="authorName">Name of author: </label><input type="text" id="authorName"></input></div>
-                <div class="dialogField"><label for="yearPublished">Year published: </label><input type="text" id="yearPublished" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
-                <div class="dialogField"><label for="numberOfPages">Number of pages: </label><input type="text" id="numberOfPages" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
+                <div class="dialogField"><label for="bookTitle">Book title: </label><input type="text" id="bookTitle" maxlength="30"></input></div>
+                <div class="dialogField"><label for="authorName">Name of author: </label><input type="text" id="authorName" maxlength="30"></input></div>
+                <div class="dialogField"><label for="yearPublished">Year published: </label><input type="text" id="yearPublished" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
+                <div class="dialogField"><label for="numberOfPages">Number of pages: </label><input type="text" id="numberOfPages" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d]/,'')"></input></div>
                 <div class="dialogCheckbox"><label for="haveRead">Have you read this book? <input type="checkbox" id="haveRead"></input></label></div>
                 <input type="submit" value="Add Book" id="addBook"></input>
                 </form>
@@ -22,6 +23,7 @@
         <header>
             <div id="left">
                 <h1> Library </h1>
+                <h2>by <a href="https://cordellbonnieux.com" target="blank_">Cordell Bonnieux</a></h2>
             </div>
             <div id="right">
                 <button id="addNewBook" onclick="showDialog(); return false;">Add New Book</button>
