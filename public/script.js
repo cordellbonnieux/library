@@ -13,18 +13,14 @@
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
   firebase.database();
-// Firebase Objects
-const preObject = document.getElementById('object');
 // Create References
-const dbRefObject = firebase.database().ref().child('object');
+const dbRefObject = firebase.database().ref().child('library');
 // Sync on changes
 dbRefObject.on('value', snap => console.log(snap.val()));
 
 
-// Store data to firebase
-
 // Book storage
-let myLibrary = [];
+let myLibrary;
 let libraryGrid = document.getElementById('libraryGrid');
 // Book prototype
 function Book(title, author, year, pages, read){
@@ -70,6 +66,7 @@ addBookButton.addEventListener('click', function(){
         read = "Have not read";
     }
     myLibrary.push(new Book(title, author, year, pages, read));
+    dbRefObject.push(new Book(title, author, year, pages, read);
     libraryRefresh();
     title.value = "", author.value = "", year.value = "", pages.value = "", read.value = false;
     return hideDialog();
@@ -80,7 +77,6 @@ function libraryRefresh(){
     for (let i = 0; i < myLibrary.length; i++){
         libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='display:inline-block; border:1px solid #fff; padding:10px 25px 10px 25px; box-shadow:4px 4px 4px #373737; background-color:transparent;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div></div>";
     }
-    dbRefObject.push(myLibrary);
     return;
 }
 // populate the page
