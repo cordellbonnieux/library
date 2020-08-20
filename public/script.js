@@ -1,11 +1,31 @@
-let myLibrary = [];
-let libraryGrid = document.getElementById('libraryGrid');
+// Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyB2u9cK-vXUhpnbMf242aEpOXGYVjDZ67U",
+    authDomain: "library-36398.firebaseapp.com",
+    databaseURL: "https://library-36398.firebaseio.com",
+    projectId: "library-36398",
+    storageBucket: "library-36398.appspot.com",
+    messagingSenderId: "6950120301",
+    appId: "1:6950120301:web:48ced8280f113cdce4c864",
+    measurementId: "G-JMJKTP3ZJT"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  firebase.database();
 // Firebase Objects
 const preObject = document.getElementById('object');
 // Create References
 const dbRefObject = firebase.database().ref().child('object');
 // Sync on changes
 dbRefObject.on('value', snap => console.log(snap.val()));
+
+
+// Store data to firebase
+
+// Book storage
+let myLibrary = [];
+let libraryGrid = document.getElementById('libraryGrid');
 // Book prototype
 function Book(title, author, year, pages, read){
     this.title = title,
@@ -60,7 +80,10 @@ function libraryRefresh(){
     for (let i = 0; i < myLibrary.length; i++){
         libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='display:inline-block; border:1px solid #fff; padding:10px 25px 10px 25px; box-shadow:4px 4px 4px #373737; background-color:transparent;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div></div>";
     }
+    dbRefObject.push(myLibrary);
     return;
 }
+// populate the page
+libraryRefresh();
 
 
