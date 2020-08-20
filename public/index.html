@@ -30,7 +30,7 @@
             </div>
         </header>
         <div id="libraryGrid">
-            <pre id="libraryPre"></pre>
+            <pre id="object"></pre>
         </div>
     </div>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -43,7 +43,7 @@
   <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-firestore.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-database.js"></script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -59,19 +59,7 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
-
-    // Set the configuration for your app
-  // TODO: Replace with your project's config object
-  var config = {
-    apiKey: "AIzaSyB2u9cK-vXUhpnbMf242aEpOXGYVjDZ67U",
-    authDomain: "library-36398.firebaseapp.com",
-    databaseURL: "https://library-36398.firebaseio.com/",
-    storageBucket: "library-36398.appspot.com"
-  };
-  firebase.initializeApp(config);
-
-  // Get a reference to the database service
-  var database = firebase.database();
+  firebase.database();
 </script>
 </body>
 <footer>

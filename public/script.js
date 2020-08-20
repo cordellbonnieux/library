@@ -1,9 +1,10 @@
 let myLibrary = [];
 let libraryGrid = document.getElementById('libraryGrid');
 // Firebase Objects
-const libraryPre = document.getElementById('libraryPre');
+const preObject = document.getElementById('object');
+// Create References
 const dbRefObject = firebase.database().ref().child('object');
-// Sync on change
+// Sync on changes
 dbRefObject.on('value', snap => console.log(snap.val()));
 // Book prototype
 function Book(title, author, year, pages, read){
