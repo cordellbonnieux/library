@@ -1,5 +1,5 @@
-// Your web app's Firebase configuration
-  var firebaseConfig = {
+// Firebase configuration
+var firebaseConfig = {
     apiKey: "AIzaSyB2u9cK-vXUhpnbMf242aEpOXGYVjDZ67U",
     authDomain: "library-36398.firebaseapp.com",
     databaseURL: "https://library-36398.firebaseio.com",
@@ -8,19 +8,15 @@
     messagingSenderId: "6950120301",
     appId: "1:6950120301:web:48ced8280f113cdce4c864",
     measurementId: "G-JMJKTP3ZJT"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  firebase.database();
-// Create References
-const dbRefObject = firebase.database().ref().child('library');
-// Sync on changes
-dbRefObject.on('value', snap => console.log(snap.val()));
-
-
-// Book storage
-let myLibrary;
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+firebase.database();
+// Create Firebase References
+var database = firebase.database();
+var ref = database.ref('library');
+// Book grid
 let libraryGrid = document.getElementById('libraryGrid');
 // Book prototype
 function Book(title, author, year, pages, read){
@@ -49,7 +45,7 @@ let cancel = document.getElementById('cancel');
 cancel.addEventListener('click', function(){
     return hideDialog();
 }); 
-// Add Book button in dialog box
+// Add Book button in dialog box (creates new book)
 let addBookButton = document.getElementById('addBook');
 addBookButton.addEventListener('click', function(){
     let title = document.getElementById('bookTitle').value;
@@ -61,25 +57,29 @@ addBookButton.addEventListener('click', function(){
         return alert('You must fill in all fields to add a book.');
     }
     if (read == true){
-        read = "Have read";
+        read = "&#10003; read";
     } else {
-        read = "Have not read";
+        read = "&#10008; Not read";
     }
-    myLibrary.push(new Book(title, author, year, pages, read));
-    dbRefObject.push(new Book(title, author, year, pages, read);
-    libraryRefresh();
+    ref.push(new Book(title, author, year, pages, read));
     title.value = "", author.value = "", year.value = "", pages.value = "", read.value = false;
     return hideDialog();
 });
-// Refreshes and prints all books to the Library
-function libraryRefresh(){
+// Print books to page
+let books;
+ref.on("value", function(snapshot) {
     libraryGrid.innerHTML = "";
-    for (let i = 0; i < myLibrary.length; i++){
-        libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='display:inline-block; border:1px solid #fff; padding:10px 25px 10px 25px; box-shadow:4px 4px 4px #373737; background-color:transparent;'> <h2>" + myLibrary[i]["title"] + "</h2><h3>by " + myLibrary[i]["author"] + "</h3><p>Published in " + myLibrary[i]["year"] + "</p><p>" + myLibrary[i]["pages"] + " pages</p><p>" + myLibrary[i]["read"] + "</p></div></div>";
-    }
-    return;
-}
-// populate the page
-libraryRefresh();
+    snapshot.forEach(function(childSnapshot){
+        books = childSnapshot.val();
+        let title = books.title;
+        let author = books.author;
+        let year = books.year;
+        let pages = books.pages;
+        let read = books.read;
+        libraryGrid.innerHTML += "<div style='display:inline-block; margin:10px;'><div style='display:inline-block; border:1px solid #fff; padding:10px 25px 10px 25px; box-shadow:4px 4px 4px #373737; background-color:transparent;'> <h2>" + title + "</h2><h3>by " + author + "</h3><p>Published in " + year + "</p><p>" + pages + " pages</p><p>" + read + "</p></div></div>";
+    })
+  });
 
+
+  
 

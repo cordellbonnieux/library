@@ -26,7 +26,6 @@ body,p,input{
 #boundingBox{
     max-width:80%;
     margin:0 auto;
-    /*overflow:hidden;*/
 }
 header{
     width:79%;
@@ -42,28 +41,42 @@ header{
         #left{
             padding:0 4px 0 22px;
         }
-            #left h1{
-                color:#000;
+            #titleWrapper{
                 display:inline-block;
+                margin-top:10px;
             }
-            #left h2{
-                font-size:16px;
-                display:inline-block;
-                color:#000;
-                margin-left:8px;
-            }
-                #left h2 a{
+                #titleWrapper h1, #titleWrapper h3{
                     color:#000;
-                    text-decoration:none;
-                    transition:0.2;
+                    margin:0;
                 }
-                    #left h2 a:hover, #left h2 a:active, #left h2 a:focus{
+                #titleWrapper h3{
+                    font-size:12px;
+                    margin-top:-8px;
+                    margin-left:2px;
+                }
+            #nameWrapper{
+                display:inline-block;
+            }
+                #nameWrapper #cordell{
+                    font-size:16px;
+                    display:inline-block;
+                    color:#000;
+                    margin-left:8px;
+                    float: left;
+                    line-height: 1;
+                }
+                    #nameWrapper h2 a{
                         color:#000;
-                        text-decoration:underline;
+                        text-decoration:none;
+                        transition:0.2;
                     }
+                    #nameWrapper h2 a:hover, #nameWrapper h2 a:active, #nameWrapper h2 a:focus{
+                            color:#000;
+                            text-decoration:underline;
+                        }
         #right{
             text-align:right;
-            padding-top:25px;
+            padding-top:14px;
             padding-right:22px;
         }
         #right button{
@@ -84,8 +97,6 @@ header{
 #libraryGrid{
     padding-top:100px;
     color:#fff;
-    /*display:inline-grid;
-    grid-template-columns:auto auto auto auto;*/
     display:flex;
     flex-wrap: wrap;
     grid-auto-rows: 1fr

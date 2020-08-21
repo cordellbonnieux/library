@@ -22,15 +22,20 @@
     <div id="boundingBox">
         <header>
             <div id="left">
-                <h1> Library </h1>
-                <h2>by <a href="https://cordellbonnieux.com" target="blank_">Cordell Bonnieux</a></h2>
-            </div>
+                <div id="titleWrapper">
+                    <h1> Library</h1>
+                    <h3>with Firebase</h3>
+                </div>
+                <div id="nameWrapper">
+                    <h2 id="cordell">by <a href="https://cordellbonnieux.com" target="blank_">Cordell Bonnieux</a></h2>
+                </div>
+                </div>
             <div id="right">
                 <button id="addNewBook" onclick="showDialog(); return false;">Add New Book</button>
             </div>
         </header>
         <div id="libraryGrid">
-            <pre id="object"></pre>
+            
         </div>
     </div>
 <script src="https://www.gstatic.com/firebasejs/7.18.0/firebase-app.js"></script>
